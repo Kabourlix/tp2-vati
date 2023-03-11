@@ -4,6 +4,11 @@ import Utility as utils
 
 
 def pretraitement(image):
+    """
+    This method apply a pretraitement to the image.
+    :param image: Original image (np.array)
+    :return: The pretraited image (np.array)
+    """
     #TODO
     return image
 
@@ -11,7 +16,13 @@ def segmentation(image):
     #TODO
     return np.array([image])
 
+
 def feature_extraction(image):
+    """
+    Thie method extract the mean color of the segmented image.
+    :param image: A segmented image (np.array)
+    :return:
+    """
     #TODO
     return None
 
