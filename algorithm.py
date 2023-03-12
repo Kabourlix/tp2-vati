@@ -5,6 +5,7 @@ import algo as algo
 import os
 import pandas as pd
 
+
 def pretraitement(image):
     """
     This method apply a pretraitement to the image.
@@ -15,9 +16,10 @@ def pretraitement(image):
     image_equ = algo.equalize_histogram(image_contrast)
     return image_equ
 
+
 def segmentation(image):
-    #TODO
-    return np.array([image])
+    # TODO
+    return np.array(["", image])
 
 
 def feature_extraction(image):
@@ -28,20 +30,23 @@ def feature_extraction(image):
     """
     return None
 
+
 if __name__ == "__main__":
     path = utils.get_path()
     image = utils.load_img(path)
 
-    #Pretraitement
+    # Pretraitement
     treated_image = pretraitement(image)
 
     # Save the image
-    #cv2.imwrite(path, treated_image)
+    # cv2.imwrite(path, treated_image)
 
-    #Segmentation : saved in an array
+    # Segmentation : saved in an array
     segmented_images = segmentation(treated_image)
 
-    #Feature extraction and display
+    # Feature extraction and display
     for i in range(len(segmented_images)):
-        feature = feature_extraction(segmented_images[i])
-        #TODO : display feature
+        segm_img = segmented_images[i, 1]
+        label = segmented_images[i, 0]
+        feature = feature_extraction(segm_img)
+        # TODO : display feature
