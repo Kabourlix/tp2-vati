@@ -45,8 +45,7 @@ if __name__ == "__main__":
     segmented_images = segmentation(treated_image)
 
     # Feature extraction and display
-    for i in range(len(segmented_images)):
-        segm_img = segmented_images[i, 1]
-        label = segmented_images[i, 0]
+    for img in segmented_images:
+        label, segm_img = img[0], img[1]
         feature = feature_extraction(segm_img)
         # TODO : display feature
