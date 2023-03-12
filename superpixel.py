@@ -44,8 +44,10 @@ def seg_felzenszwalb(res):
 def seg_slic(loaded_img, mask_image) :
     # convertir en float pr utiliser skimage
     img = img_as_float(loaded_img)
-    return slic(img, n_segments=250, compactness=10, sigma=1, mask=mask_image)
+    return slic(img, n_segments=100, compactness=9, sigma=1, mask=mask_image)
     # TODO : mask ajouté pour enlever les segmentation du fond noir
+    # TODO : n_segments baissé pour diminuer le nombre de segments
+    # TODO : compactness est légèrement baissé pour obtenir des segmentations moins carrés
 
 # Appliquer la segmentation par la méthode QuickShift
 # loaded_img : image de base
