@@ -1,7 +1,9 @@
 import cv2
 import numpy as np
 import Utility as utils
-
+import algo as algo
+import os
+import pandas as pd
 
 def pretraitement(image):
     """
@@ -9,8 +11,9 @@ def pretraitement(image):
     :param image: Original image (np.array)
     :return: The pretraited image (np.array)
     """
-    #TODO
-    return image
+    image_contrast = algo.adjust_contrast(image, 1.5)
+    image_equ = algo.equalize_histogram(image_contrast)
+    return image_equ
 
 def segmentation(image):
     #TODO
@@ -23,7 +26,6 @@ def feature_extraction(image):
     :param image: A segmented image (np.array)
     :return:
     """
-    #TODO
     return None
 
 if __name__ == "__main__":
@@ -32,6 +34,9 @@ if __name__ == "__main__":
 
     #Pretraitement
     treated_image = pretraitement(image)
+
+    # Save the image
+    #cv2.imwrite(path, treated_image)
 
     #Segmentation : saved in an array
     segmented_images = segmentation(treated_image)
