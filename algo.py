@@ -24,10 +24,11 @@ def equalize_histogram(img):
     cv2.equalizeHist(channels[0], channels[0])
     cv2.merge(channels, image_e)
     image_e = cv2.cvtColor(image_e, cv2.COLOR_YCrCb2BGR)
+    hist_e = cv2.calcHist([channels[0]], [0], None, [256], [0, 256])
 
     # Plot the histogram
-    plt.plot(hist)
-    plt.title('Histogram')
+    plt.plot(hist_e)
+    plt.title('Histogram after treatment')
     plt.xlim([0, 256])
     plt.ylim([0, 10000])
     plt.show()
